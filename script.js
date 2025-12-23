@@ -1,4 +1,4 @@
-// Array to store quotes
+// Quotes array with objects containing text and category
 let quotes = [
   { text: "The journey of a thousand miles begins with one step.", category: "Motivation" },
   { text: "Life is what happens when you're busy making other plans.", category: "Life" },
@@ -6,10 +6,10 @@ let quotes = [
 ];
 
 // Function to display a random quote
-function showRandomQuote() {
+function displayRandomQuote() {
   const quoteDisplay = document.getElementById("quoteDisplay");
   if (quotes.length === 0) {
-    quoteDisplay.textContent = "No quotes available. Add a new quote!";
+    quoteDisplay.textContent = "No quotes available!";
     return;
   }
   const randomIndex = Math.floor(Math.random() * quotes.length);
@@ -26,7 +26,7 @@ function addQuote() {
   const newCategory = categoryInput.value.trim();
 
   if (newText === "" || newCategory === "") {
-    alert("Please fill in both the quote and the category.");
+    alert("Please fill in both fields.");
     return;
   }
 
@@ -37,10 +37,10 @@ function addQuote() {
   textInput.value = "";
   categoryInput.value = "";
 
-  // Immediately show the added quote
-  showRandomQuote();
+  // Show the new quote immediately
+  displayRandomQuote();
 }
 
-// Event listeners
-document.getElementById("newQuote").addEventListener("click", showRandomQuote);
+// Event listeners for buttons
+document.getElementById("newQuote").addEventListener("click", displayRandomQuote);
 document.getElementById("addQuoteBtn").addEventListener("click", addQuote);
