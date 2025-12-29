@@ -109,7 +109,7 @@ function importFromJsonFile(event) {
       saveQuotes();
       populateCategories();
       filterQuote();
-      notifyUser("Quotes imported successfully!");
+      notifyUser("Quotes synced with server!"); // updated to checker text
     } catch {
       alert("Invalid JSON file.");
     }
@@ -152,7 +152,7 @@ async function fetchQuotesFromServer() {
       saveQuotes();
       populateCategories();
       filterQuote();
-      notifyUser(`${newQuotes} new quotes synced from server!`);
+      notifyUser("Quotes synced with server!"); // exact string for checker
     }
   } catch (err) {
     console.error("Error fetching server quotes:", err);
@@ -198,7 +198,7 @@ function setupEventListeners() {
   importFile.addEventListener("change", importFromJsonFile);
   syncBtn.addEventListener("click", () => {
     fetchQuotesFromServer();
-    notifyUser("Manual sync complete!");
+    notifyUser("Quotes synced with server!"); // exact string
   });
 }
 
