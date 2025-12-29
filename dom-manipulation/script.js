@@ -12,7 +12,7 @@ const newQuoteBtn = document.getElementById("newQuote");
 // Function to display a random quote
 function displayRandomQuote() {
   const randomIndex = Math.floor(Math.random() * quotes.length);
-  quoteDisplay.textContent = quotes[randomIndex].text;
+  quoteDisplay.innerHTML = quotes[randomIndex].text;
 }
 
 // Event listener for "Show New Quote" button
@@ -35,7 +35,7 @@ function addQuote() {
   });
 
   // Update the DOM immediately to show the new quote
-  quoteDisplay.textContent = quoteText;
+  quoteDisplay.innerHTML = quoteText;
 
   // Clear input fields
   document.getElementById("newQuoteText").value = "";
