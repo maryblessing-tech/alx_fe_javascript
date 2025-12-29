@@ -14,17 +14,17 @@
     <label for="categoryFilter">Filter by Category:</label>
     <select id="categoryFilter">
       <option value="all">All Categories</option>
-      <!-- Categories will be populated dynamically -->
+      <!-- Dynamically populated -->
     </select>
   </div>
 
   <!-- Quote Display -->
   <div id="quoteDisplay"></div>
 
-  <!-- Show Quotes Button -->
-  <button id="newQuote">Show Quotes</button>
+  <!-- Show Random Quote -->
+  <button id="newQuote">Show Quote</button>
 
-  <!-- Add a New Quote -->
+  <!-- Add New Quote -->
   <h3>Add a new quote</h3>
   <div>
     <input id="newQuoteText" type="text" placeholder="Enter a new quote">
@@ -35,6 +35,9 @@
   <!-- JSON Export/Import -->
   <button id="exportBtn">Export Quotes</button>
   <input type="file" id="importFile" accept=".json">
+
+  <!-- Server Sync -->
+  <button id="syncBtn">Sync with Server</button>
 
   <script src="script.js"></script>
 </body>
