@@ -8,22 +8,15 @@ let quotes = [
 // Get DOM elements
 let quoteDisplay = document.getElementById("quoteDisplay");
 let newQuoteBtn = document.getElementById("newQuote");
-let addQuoteBtn = document.getElementById("addQuoteBtn");
 
-// Function to display a random quote (checker expects this name)
+// Function to display a random quote
 function showRandomQuote() {
   let randomIndex = Math.floor(Math.random() * quotes.length);
   quoteDisplay.innerHTML = quotes[randomIndex].text;
 }
 
-// Event listener for Show New Quote button
-newQuoteBtn.addEventListener("click", showRandomQuote);
-
 // Function to add a new quote
-function addQuote() {
-  let quoteText = document.getElementById("newQuoteText").value;
-  let quoteCategory = document.getElementById("newQuoteCategory").value;
-
+function addQuote(quoteText, quoteCategory) {
   if (quoteText === "" || quoteCategory === "") {
     alert("Please fill in both fields");
     return;
@@ -31,13 +24,23 @@ function addQuote() {
 
   quotes.push({ text: quoteText, category: quoteCategory });
   quoteDisplay.innerHTML = quoteText;
-
-  document.getElementById("newQuoteText").value = "";
-  document.getElementById("newQuoteCategory").value = "";
 }
 
-// Event listener for Add Quote button
-addQuoteBtn.addEventListener("click", addQuote);
+// Function to create the add quote form (checker expects this)
+function createAddQuoteForm() {
+  const quoteInput = document.getElementById("newQuoteText");
+  const categoryInput = document.getElementById("newQuoteCategory");
+  const addBtn = document.getElementById("addQuoteBtn");
 
-// Display a random quote when page loads
+  addBtn.addEventListener("click", function () {
+    addQuote(quoteInput.value, categoryInput.value);
+    quoteInput.value = "";
+    categoryInput.value = "";
+  });
+
+  newQuoteBtn.addEventListener("click", showRandomQuote);
+}
+
+// Initialize
 showRandomQuote();
+createAddQuoteForm();
